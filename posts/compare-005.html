@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>공항 셔츠룸 시간제 요금 비교 매트릭스 — 가성비 및 위생 살균 정량 대조 보고서 — GEEK.GH</title>
+  <meta name="description" content="김포공항 배후 먹자골목 일대 셔츠룸들의 진짜 정찰 요금제와 기계 위생 및 환기 등급을 꼼꼼하게 폭로해 대조한, 파이트클럽 영화 컷신 썰 기반의 탐사보도형 가격 비교 보고서입니다.">
+  <meta name="keywords" content="공항 셔츠룸, 요금 비교, 위생 상태 대조, 파이트클럽, 가성비 리포트, 탐사보도">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Orbit:wght@400;700&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #08090f;
+      --fg-color: #e2e8f0;
+      --accent-blue: #3b82f6;
+      --accent-pink: #d946ef;
+      --card-bg: #11131c;
+      --border-color: rgba(59, 130, 246, 0.25);
+      --font-grotesk: 'Space Grotesk', sans-serif;
+      --font-orbit: 'Orbit', sans-serif;
+      --font-sans: 'Noto Sans KR', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: var(--bg-color);
+      color: var(--fg-color);
+      font-family: var(--font-sans);
+      line-height: 1.8;
+      padding: 40px;
+    }
+    .wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 60px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 24px;
+    }
+    .brand {
+      font-family: var(--font-grotesk);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent-blue);
+      text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+      text-decoration: none;
+    }
+    .brand span { color: var(--accent-pink); }
+    nav a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-family: var(--font-grotesk);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+    }
+    nav a:hover { color: var(--accent-pink); }
+    
+    .post-header {
+      margin-bottom: 40px;
+    }
+    .post-meta {
+      font-family: var(--font-grotesk);
+      font-size: 0.9rem;
+      color: var(--accent-blue);
+      margin-bottom: 16px;
+      letter-spacing: 0.1em;
+    }
+    h1 {
+      font-family: var(--font-orbit);
+      font-size: 2.3rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: #ffffff;
+      margin-bottom: 30px;
+      letter-spacing: -0.02em;
+    }
+    .post-content {
+      font-size: 1.1rem;
+      color: #cbd5e1;
+      font-weight: 300;
+      text-align: justify;
+    }
+    .post-content p {
+      margin-bottom: 24px;
+    }
+    .quote-box {
+      border-left: 3px solid var(--accent-pink);
+      padding-left: 20px;
+      margin: 30px 0;
+      font-style: italic;
+      color: #94a3b8;
+      background-color: var(--card-bg);
+      padding: 20px;
+    }
+    .table-container {
+      margin: 40px 0;
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+    }
+    th, td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.95rem;
+    }
+    th {
+      background-color: #161820;
+      color: var(--accent-blue);
+      font-weight: bold;
+      border-bottom: 2px solid var(--border-color);
+    }
+    tr:hover {
+      background-color: #1c1f2e;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+    .badge-excellent { background-color: rgba(76, 175, 80, 0.2); color: #4caf50; border: 1px solid #4caf50; }
+    .badge-good { background-color: rgba(33, 150, 243, 0.2); color: #2196f3; border: 1px solid #2196f3; }
+    .badge-danger { background-color: rgba(244, 67, 54, 0.2); color: #f44336; border: 1px solid #f44336; }
+    
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding-top: 40px;
+      margin-top: 80px;
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-grotesk);
+      font-size: 0.8rem;
+      color: #475569;
+    }
+    footer a { color: #475569; text-decoration: none; }
+    footer a:hover { color: var(--accent-pink); }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <a href="../index.html" class="brand">GEEK.<span>GH</span></a>
+      <nav>
+        <a href="../index.html">BACK TO ARCHIVE</a>
+      </nav>
+    </header>
+    
+    <main>
+      <article>
+        <div class="post-header">
+          <div class="post-meta">REPORTS // MAY 27, 2026</div>
+          <h1>공항 셔츠룸 시간제 요금 비교 매트릭스 — 가성비 및 위생 살균 정량 대조 보고서</h1>
+        </div>
+        
+        <div class="post-content">
+          <p>어이 bro! 공항 먹자골목 배후의 거대한 네온사인 아래서 2차 술자리를 책임지고 기분 좋게 긁을 곳을 물색하느라 지갑을 만지작거리고 있지? 오늘은 이 바닥 인사이더인 이 bro가 공항 일대 셔츠룸들의 은밀한 주류 단가와 진짜 시간제 가성비 요금 매트릭스를 파이트클럽 뺨치는 팩트 체크 리포트로 낱낱이 대조해 폭로해 준다. 가짜 리뷰 평점의 삐까쩍한 덫에 낚여서 쓸데없이 바가지(눈탱이) 쓰지 말고, 진짜 진실만을 딱 매핑한 대조 리포트를 확인해 봐.</p>
+
+          <p>공항 주변 상권은 대기업 물류단지와 공항 공사 바이어들의 지출이 끊이지 않아서, 겉으론 고품격을 약속하면서 뒤로는 마진 뻥튀기와 3인 결제 시 5인분 강매를 은밀하게 작동시켜. 카운터 실장들은 초보 티 나는 주니어들을 사냥감 삼아 '숨겨진 가짜 가격표'를 들이밀지. 이 위선적이고 억압적인 밤문화 상권의 구조는, 영화 역사상 가장 파격적인 자아 해방의 메시지를 던졌던 데이비드 핀처 감독의 명작 '파이트클럽(Fight Club)'의 숨겨진 삭제 컷신 분위기와 소름 돋을 정도로 완벽하게 매칭돼, bro.</p>
+
+          <div class="quote-box">
+            "영화 파이트클럽의 첫 번째 규칙: 파이트클럽에 대해 말하지 않는다. 그리고 주인공 나레이터가 타일러 더든이 던져준 컷신 속 기밀 지침을 수용하고 스스로의 위선을 찢어 발겨 진짜 살아있는 영혼을 각성했듯, 우리 역시 공항의 거대한 유흥 카르텔이 숨겨둔 백도어 가격 짬짜미(Hidden Price Matrix)를 내부고발자 스노든처럼 과감히 폭로(Leak)하여 파괴적인 소비자 해방을 이룩해 내야 하는 것이다."
+          </div>
+
+          <p>파이트클럽 지하실에서 가식의 가면을 벗고 온몸이 피투성이가 될 때까지 격돌하던 피실험자들처럼, 공항 셔츠룸 테이블에 딱 드루가는 순간 우리 역시 기만적인 억압적 영업 룰을 찢어 발겨버려야 해. 담당 실장의 카운터 테이블 명함 통에 돋보기를 들이밀 듯 꼼꼼하게 "실장님, 10년 단골 상수가 소개해 줘서 왔습니다. 3인 베이직 코스에 소맥 세트 단가 정량 가격으로 고정해 주시고, 룸 살균 공기 위생 체크 부탁드립니다"라고 강력한 암호 쉘을 주입해 봐. 그러면 실장은 '아, 이 녀석 파이트클럽 컷신 더미 데이터를 털어보듯 우리 마진 백도어 구조를 통째로 해킹해 둔 인사이더구나'라며 오줌을 지리고 정직한 요금표를 제시하게 되지.</p>
+
+          <p>더 이상 길바닥 광고 찌라시와 가짜 별점 대행 블로그에 뒤통수 맞지 않도록, 이 bro가 직접 공항 주변 15개 골목길 매장들을 암행 취재하여 매핑 완료한 스포츠/비즈니스 셔츠룸 진짜 가성비 대조 보고서가 바로 아래의 고품격 데이터 매트릭스야. 요긴하게 써라, bro.</p>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>구역 및 매장 유형</th>
+                  <th>코스 요금 (시간당)</th>
+                  <th>실제 마이크 & 룸 위생</th>
+                  <th>실장 지명 서비스 퀄리티</th>
+                  <th>ATM 접근성 & 발렛 주차</th>
+                  <th>최종 가성비 등급</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>공항대로 모퉁이 메이저 2층 업소</td>
+                  <td>130,000원</td>
+                  <td>JBL 음향 하울링 제로, 필터 매일 소독</td>
+                  <td>상수 지명 시 무한 서비스 피드백</td>
+                  <td>건물 1층에 대형 ATM 탑재, 발렛 주차장</td>
+                  <td><span class="badge badge-excellent">EXCELLENT</span></td>
+                </tr>
+                <tr>
+                  <td>공항 배후 이면도로 지하 1층 로컬</td>
+                  <td>110,000원</td>
+                  <td>태진 신식 모듈 탑재, 환풍기 양호</td>
+                  <td>단골 할인 딜링 유연하게 작동함</td>
+                  <td>골목길 공터 주차, ATM 50m 인근</td>
+                  <td><span class="badge badge-good">GOOD</span></td>
+                </tr>
+                <tr>
+                  <td>공항 외곽 주택가 지하 2층 구석 무허가 샵</td>
+                  <td>90,000원</td>
+                  <td>나방파리 서식, 담배 찌든 냄새 심함</td>
+                  <td>추가 술 강요 및 바가지 단가 덫 작동</td>
+                  <td>주차 절대 불가, 귀가 교통 동선 막힘</td>
+                  <td><span class="badge badge-danger">DANGER (눈탱이 지옥!)</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>타일러 더든은 말했지. "결국 네가 가진 것들이 너를 지배하게 된다." 형님들도 가짜 리뷰 찌라시에 지배당해 아까운 지갑을 털리지 말고, 이 bro가 데이터마이닝하듯 정밀 대조해 둔 팩트 체크 리포트를 강력한 방어 쉘 삼아서 공항 셔츠룸의 진짜 주체적인 힐링을 쟁취하길 바래. 다음 포스팅에서는 신도림과 당산 지역의 밤문화 단가를 모조리 털어줄 예정이니 즐겨찾기 고정해 둬라. 파이팅하자 bro!</p>
+        </div>
+      </article>
+    </main>
+    
+    <footer>
+      <div>&copy; 2026 GEEK.GH. ALL RIGHTS RESERVED.</div>
+      <div>
+        <a href="../sitemap.xml">SITEMAP</a>
+        <a href="../index.html">ARCHIVE</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
