@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 목록 (2/3) · t3b04-gh-shirts-list-1</title>
+  <meta name="description" content="t3b04-gh-shirts-list-1에 올라온 글 목록입니다.">
+  <link rel="canonical" href="https://airport-shirt-review.hardcoreroom.com/posts-2.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    :root {
+      --bg-color: #08090f;
+      --fg-color: #e2e8f0;
+      --accent-blue: #3b82f6;
+      --accent-pink: #d946ef;
+      --card-bg: #11131c;
+      --border-color: rgba(59, 130, 246, 0.25);
+      --font-grotesk: 'Space Grotesk', sans-serif;
+      --font-orbit: 'Orbit', sans-serif;
+      --font-sans: 'Noto Sans KR', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: var(--bg-color);
+      color: var(--fg-color);
+      font-family: var(--font-sans);
+      line-height: 1.8;
+      padding: 40px;
+    }
+    .wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 80px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 32px;
+    }
+    .brand {
+      font-family: var(--font-grotesk);
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--accent-blue);
+      text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+      text-decoration: none;
+    }
+    .brand span { color: var(--accent-pink); text-shadow: 0 0 10px rgba(217, 70, 239, 0.5); }
+    nav { display: flex; gap: 32px; }
+    nav a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-family: var(--font-grotesk);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+    }
+    nav a:hover { color: var(--accent-pink); }
+    
+    main { margin-bottom: 100px; }
+    .label {
+      font-family: var(--font-grotesk);
+      font-size: 0.8rem;
+      color: var(--accent-pink);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+    h1 {
+      font-family: var(--font-orbit);
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: #ffffff;
+      margin-bottom: 48px;
+      letter-spacing: -0.02em;
+    }
+    .intro-text {
+      font-size: 1.15rem;
+      color: #cbd5e1;
+      font-weight: 300;
+      max-width: 850px;
+      margin-bottom: 80px;
+      text-align: justify;
+    }
+    .intro-text p { margin-bottom: 28px; }
+    
+    .section-title {
+      font-family: var(--font-grotesk);
+      font-size: 1.1rem;
+      color: var(--accent-blue);
+      letter-spacing: 0.25em;
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .grid-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 100px;
+    }
+    @media(max-width: 768px) {
+      .grid-section { grid-template-columns: 1fr; }
+    }
+    .essay-card {
+      border: 1px solid var(--border-color);
+      padding: 30px;
+      background-color: var(--card-bg);
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+    .essay-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 4px; height: 100%;
+      background: linear-gradient(to bottom, var(--accent-blue), var(--accent-pink));
+    }
+    .essay-card h3 {
+      font-family: var(--font-orbit);
+      font-size: 1.3rem;
+      color: #ffffff;
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+    .essay-card p {
+      font-size: 0.95rem;
+      color: #94a3b8;
+      text-align: justify;
+    }
+
+    /* PBN Feeds */
+    .pbn-feed-section {
+      margin-top: 100px;
+    }
+    .pbn-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .pbn-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 250px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .pbn-card:hover {
+      border-color: var(--accent-pink);
+      transform: translateX(8px);
+      box-shadow: 0 0 15px rgba(217, 70, 239, 0.2);
+    }
+    .pbn-meta {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-grotesk);
+      font-size: 0.8rem;
+      color: var(--accent-blue);
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+    .pbn-meta span {
+      border: 1px solid var(--accent-blue);
+      padding: 2px 10px;
+    }
+    .pbn-card h4 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 14px;
+      line-height: 1.4;
+      font-family: var(--font-orbit);
+    }
+    .pbn-card p {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin-bottom: 24px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .read-more {
+      align-self: flex-start;
+      color: var(--accent-pink);
+      font-size: 0.9rem;
+      font-weight: 700;
+      font-family: var(--font-grotesk);
+      letter-spacing: 0.1em;
+    }
+    
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding-top: 48px;
+      margin-top: 100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-grotesk);
+      font-size: 0.8rem;
+      color: #475569;
+    }
+    footer a { color: #475569; text-decoration: none; margin-left: 20px; }
+    footer a:hover { color: var(--accent-pink); }
+    
+    @media(max-width: 768px) {
+      header { flex-direction: column; gap: 24px; align-items: flex-start; }
+      h1 { font-size: 2rem; }
+      footer { flex-direction: column; gap: 20px; text-align: center; }
+    }
+  </style>
+  <meta property="og:title" content="글 목록 (2/3) · t3b04-gh-shirts-list-1">
+  <meta property="og:description" content="t3b04-gh-shirts-list-1에 올라온 글 목록입니다.">
+  <meta property="og:url" content="https://airport-shirt-review.hardcoreroom.com/posts-2.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="index.html" class="brand">GEEK.<span>GH</span></a>
+      <nav>
+        <a href="index.html">GRID_NET</a>
+        <a href="sitemap.xml">SITEMAP</a>
+      </nav>
+    </header>
+    <main>
+      <h1>글 목록</h1>
+      <p>전체 44개 · 2/3 페이지</p>
+      <ul class="post-list">
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0310.html">공항 셔츠룸 모음 비교로 알아보는 마포 단체 회식용 대형 룸 노래방 가격 정보</a>
+        <p class="post-item__summary">단체 회식을 준비하는 실무자들에게 장소 선정은 언제나 어려운 숙제입니다. 공항 셔츠룸 모음 리스트를 보면서 비즈니스 접대와 회식 목적에 적합한 공간을 찾기 위해 고민하는 분들이 많습니다. 특히 공간</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0311.html">공항 셔츠룸 모음 살피며 보는 합정 셔츠룸 단골들이 뽑은 핫플 매거진 예약 팁</a>
+        <p class="post-item__summary">즐거운 저녁 시간을 위해 업소를 예약할 때 많은 이들이 사전에 공항 셔츠룸 모음 정보를 탐색합니다. 그러나 예약 과정에서 기본적인 절차를 간과하면 낭패를 보기 쉽습니다. 특히 유명한 곳은 예약을 잡</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0122.html">공항 셔츠룸 모음 대신 찾게 되는 망원 노래방 추천정보</a>
+        <p class="post-item__summary">간혹 노래방을 단순히 술을 마시는 공간으로만 오해하는 경우가 많지만, 이는 시설의 본질과 음향 설비가 주는 즐거움을 간과하는 것입니다. 공항 셔츠룸 모음과 같은 유흥 정보를 찾는 분들도 정작 노래에</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0123.html">공항 셔츠룸 모음보다 알찬 홍대 노래방 추천정보 이용법</a>
+        <p class="post-item__summary">넓은 공간, 최신형 음향 장비, 그리고 쾌적한 위생 관리는 성공적인 노래방 방문을 위한 기본적인 충족 조건입니다. 많은 이들이 공항 셔츠룸 모음과 같은 정보를 살피지만, 홍대 인근에서 실속 있는 즐</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0124.html">공항 셔츠룸 모음 찾는다면 꼭 비교할 공덕 셔츠룸 추천정보</a>
+        <p class="post-item__summary">혹시 공항 셔츠룸 모음 정보를 찾아보면서 정작 본인이 머무는 공덕 인근의 업체들에 대해서는 구체적으로 알고 계신가요? 수많은 매장들 사이에서 어떤 곳이 본인의 취향에 맞는지 구분하기란 생각보다 쉽지</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0125.html">공항 셔츠룸 모음 활용한 연남 유흥 추천정보 확인하는 법</a>
+        <p class="post-item__summary">많은 이들이 공항 셔츠룸 모음 정보를 찾아보며 다양한 유흥 공간을 비교하곤 합니다. 하지만 정보의 홍수 속에서 실제로 신뢰할 수 있는 장소를 찾는 과정은 체계적인 접근이 필요합니다. 연남 지역을 중</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0126.html">공항 셔츠룸 모음 비교를 통한 마곡 가라오케 추천정보 분석</a>
+        <p class="post-item__summary">최근 공항 셔츠룸 모음 관련 데이터가 많아지면서, 이용자들은 마곡 지역의 가라오케를 선택할 때 어떤 기준으로 가격을 평가해야 할지 고민합니다. 가장 먼저 고려할 선택지는 기본 정찰제 매장과 현장 조</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0127.html">공항 셔츠룸 모음 탐색 시 주의할 마곡 유흥 추천정보 예약 절차</a>
+        <p class="post-item__summary">많은 이들이 공항 셔츠룸 모음 정보를 활용해 즐거움을 찾지만, 예약 단계에서 실수하여 방문이 틀어지는 경우가 빈번합니다. 가장 흔한 실패 지점은 방문 인원과 이용 목적을 정확히 전달하지 않는 것입니</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0128.html">공항 셔츠룸 모음 기반 합정 노래방 추천정보 접근성 체크리스트</a>
+        <p class="post-item__summary">공항 셔츠룸 모음 관련 검색을 통해 합정 인근 노래방을 찾고 있다면, 위치와 접근성을 가장 먼저 점검해야 합니다. 이동 경로가 번거로우면 전체적인 모임의 만족도가 크게 떨어질 수밖에 없습니다. 합정</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0129.html">공항 셔츠룸 모음 활용한 연남 클럽 추천정보 정리</a>
+        <p class="post-item__summary">주말 저녁 연남동 골목을 거닐다 보면 화려한 조명과 강렬한 비트가 흘러나오는 곳들을 쉽게 마주하게 됩니다. 처음 이 지역을 방문한 이들은 어디로 향해야 할지 몰라 당황하기 일쑤인데, 미리 관련 정보</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0130.html">공항 셔츠룸 모음 분석으로 보는 합정 셔츠룸 추천정보</a>
+        <p class="post-item__summary">많은 이들이 셔츠룸 시스템에 대해 오해하는 부분 중 하나는 이것이 단순한 유흥의 연장선에만 있다고 믿는 것입니다. 공항 셔츠룸 모음 데이터가 보여주듯, 사실 이곳은 개인적인 사교와 휴식을 결합한 독</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0131.html">공항 셔츠룸 모음 기반의 공덕 가라오케 추천정보 활용</a>
+        <p class="post-item__summary">완벽한 모임 장소를 선정하기 위해서는 인원 수용 능력과 방음 수준, 그리고 서비스의 질이 조화를 이루어야 합니다. 공항 셔츠룸 모음 사례에서 파생된 다양한 비교 데이터는 이런 선택의 기준을 세우는 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260722-0132.html">공항 셔츠룸 모음 살펴보며 상수 마사지 추천정보 비교</a>
+        <p class="post-item__summary">오늘 하루 당신의 몸은 충분한 휴식을 취하고 계신가요? 일상에 지쳐 마사지 숍을 고민할 때, 공항 셔츠룸 모음 자료를 통해 우리가 얻을 수 있는 정보처럼 객관적인 비교가 반드시 필요합니다. 많은 업</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/guide-003.html">공항 셔츠룸 모임 예약을 위한 막내의 철통 비즈니스 예약 프로토콜 가이드</a>
+        <p class="post-item__summary">어이 bro! 공항 인근 비즈니스 밸리에서 대형 프로젝트 미팅이 끝나고, 부서 전체나 주요 임원진들이 참여하는 2차 셔츠룸 예약 책임을 어깨에 짊어진 주니어 직장인들, 다들 쫄아서 버벅거리고 있지?</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/guide-004.html">공항 셔츠룸 골든아워 선점 요령 및 안전한 심야 대리 귀가 교통 허브 동선 매핑</a>
+        <p class="post-item__summary">어이 bro! 목요일 밤이나 금요일 늦은 퇴근시간대, 김포공항 활주로 배후의 먹자골목 이면도로에 대규모 직장인 인파가 몰려들어 지옥 같은 대기 정체가 벌어지고 있을 때 기민하게 살아남을 대책 세우고</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/juice-1.html">공항 셔츠룸 가이드</a>
+        <p class="post-item__summary">대한민국 주요 공항에는 장기 체류나 긴 대기 시간을 가진 승객들을 위해 다양한 셔츠룸과 휴게 시설이 위치해 있습니다. 이 공간들은 단순한 대기실을 넘어, 샤워실을 갖춘 독립된 룸 형태를 제공하여 여</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/juice-2.html">공항 셔츠룸 모음</a>
+        <p class="post-item__summary">출발 전이나 도착 후 잠시 휴식하면서 셔츠를 관리해야 할 필요가 있을 때, 공항 내 셔츠룸 정보를 찾아보는 경우가 많습니다. 많은 여행객이 비즈니스 미팅이나 행사 전 의류 정리 서비스를 이용하며, </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/myth-002-10wqrbb.html">공항 셔츠룸 모음에 관한 흔한 오해, 직접 확인해보니 달랐던 점</a>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-1.html">공항 셔츠룸 모음 안내</a>
+        <p class="post-item__summary">여행의 시작과 끝이 되는 공항은 수많은 승객이 오가는 공간으로, 비행 일정의 변동이나 짐 문제 등으로 시간이 지체될 때 잠시 머물 수 있는 공간이 필요합니다. 특히 비즈니스 여행이나 장기 기내 연결</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-2.html">공항 셔츠룸 안내 및 안전 팁</a>
+        <p class="post-item__summary">여러 공항에서는 장거리 비행 전이나 긴 연결 시간을 대비하여 손님의 의류를 관리하고 세탁해주는 셔츠룸 서비스를 제공합니다. 이러한 시설은 비즈니스 여행객들에게 특히 유용하며, 공항 내 편의 시설로 </p>
+      </li>
+      </ul>
+    <nav class="pager">
+      <a class="pager__link" href="posts.html">1</a>
+      <span class="pager__current">2</span>
+      <a class="pager__link" href="posts-3.html">3</a>
+    </nav>
+    </main>
+  </div>
+</body>
+</html>

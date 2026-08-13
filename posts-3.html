@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 목록 (3/3) · t3b04-gh-shirts-list-1</title>
+  <meta name="description" content="t3b04-gh-shirts-list-1에 올라온 글 목록입니다.">
+  <link rel="canonical" href="https://airport-shirt-review.hardcoreroom.com/posts-3.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    :root {
+      --bg-color: #08090f;
+      --fg-color: #e2e8f0;
+      --accent-blue: #3b82f6;
+      --accent-pink: #d946ef;
+      --card-bg: #11131c;
+      --border-color: rgba(59, 130, 246, 0.25);
+      --font-grotesk: 'Space Grotesk', sans-serif;
+      --font-orbit: 'Orbit', sans-serif;
+      --font-sans: 'Noto Sans KR', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: var(--bg-color);
+      color: var(--fg-color);
+      font-family: var(--font-sans);
+      line-height: 1.8;
+      padding: 40px;
+    }
+    .wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 80px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 32px;
+    }
+    .brand {
+      font-family: var(--font-grotesk);
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--accent-blue);
+      text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+      text-decoration: none;
+    }
+    .brand span { color: var(--accent-pink); text-shadow: 0 0 10px rgba(217, 70, 239, 0.5); }
+    nav { display: flex; gap: 32px; }
+    nav a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-family: var(--font-grotesk);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+    }
+    nav a:hover { color: var(--accent-pink); }
+    
+    main { margin-bottom: 100px; }
+    .label {
+      font-family: var(--font-grotesk);
+      font-size: 0.8rem;
+      color: var(--accent-pink);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+    h1 {
+      font-family: var(--font-orbit);
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: #ffffff;
+      margin-bottom: 48px;
+      letter-spacing: -0.02em;
+    }
+    .intro-text {
+      font-size: 1.15rem;
+      color: #cbd5e1;
+      font-weight: 300;
+      max-width: 850px;
+      margin-bottom: 80px;
+      text-align: justify;
+    }
+    .intro-text p { margin-bottom: 28px; }
+    
+    .section-title {
+      font-family: var(--font-grotesk);
+      font-size: 1.1rem;
+      color: var(--accent-blue);
+      letter-spacing: 0.25em;
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .grid-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 100px;
+    }
+    @media(max-width: 768px) {
+      .grid-section { grid-template-columns: 1fr; }
+    }
+    .essay-card {
+      border: 1px solid var(--border-color);
+      padding: 30px;
+      background-color: var(--card-bg);
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+    .essay-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 4px; height: 100%;
+      background: linear-gradient(to bottom, var(--accent-blue), var(--accent-pink));
+    }
+    .essay-card h3 {
+      font-family: var(--font-orbit);
+      font-size: 1.3rem;
+      color: #ffffff;
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+    .essay-card p {
+      font-size: 0.95rem;
+      color: #94a3b8;
+      text-align: justify;
+    }
+
+    /* PBN Feeds */
+    .pbn-feed-section {
+      margin-top: 100px;
+    }
+    .pbn-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .pbn-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 250px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .pbn-card:hover {
+      border-color: var(--accent-pink);
+      transform: translateX(8px);
+      box-shadow: 0 0 15px rgba(217, 70, 239, 0.2);
+    }
+    .pbn-meta {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-grotesk);
+      font-size: 0.8rem;
+      color: var(--accent-blue);
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+    .pbn-meta span {
+      border: 1px solid var(--accent-blue);
+      padding: 2px 10px;
+    }
+    .pbn-card h4 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 14px;
+      line-height: 1.4;
+      font-family: var(--font-orbit);
+    }
+    .pbn-card p {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin-bottom: 24px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .read-more {
+      align-self: flex-start;
+      color: var(--accent-pink);
+      font-size: 0.9rem;
+      font-weight: 700;
+      font-family: var(--font-grotesk);
+      letter-spacing: 0.1em;
+    }
+    
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding-top: 48px;
+      margin-top: 100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-grotesk);
+      font-size: 0.8rem;
+      color: #475569;
+    }
+    footer a { color: #475569; text-decoration: none; margin-left: 20px; }
+    footer a:hover { color: var(--accent-pink); }
+    
+    @media(max-width: 768px) {
+      header { flex-direction: column; gap: 24px; align-items: flex-start; }
+      h1 { font-size: 2rem; }
+      footer { flex-direction: column; gap: 20px; text-align: center; }
+    }
+  </style>
+  <meta property="og:title" content="글 목록 (3/3) · t3b04-gh-shirts-list-1">
+  <meta property="og:description" content="t3b04-gh-shirts-list-1에 올라온 글 목록입니다.">
+  <meta property="og:url" content="https://airport-shirt-review.hardcoreroom.com/posts-3.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="index.html" class="brand">GEEK.<span>GH</span></a>
+      <nav>
+        <a href="index.html">GRID_NET</a>
+        <a href="sitemap.xml">SITEMAP</a>
+      </nav>
+    </header>
+    <main>
+      <h1>글 목록</h1>
+      <p>전체 44개 · 3/3 페이지</p>
+      <ul class="post-list">
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-3.html">공항 셔츠룸 이용 가이드</a>
+        <p class="post-item__summary">공항 여행 중 갑작스러운 옷감 관리가 필요할 때는 전용 공간인 셔츠룸을 활용하는 것이 효율적입니다. 일반적으로 승강장이나 출국장 부근에 위치하여 접근성이 높으며, 전기 다리미와 옷걸이가 기본적으로 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/review-001.html">나이키 SB Dunk Low의 숨은 차이, 리셀가에 미치는 영향</a>
+        <p class="post-item__summary">나이키 SB Dunk Low는 스니커즈 열성fans들에게 특히나 유명한 모델입니다. 최근에 2003년판과 2021년 레트로판의 차이를 살펴보다가, 스티치 밀도와 박스지 재질의 차이가 리셀가에 미치는</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/review-002.html">형님이 딱 잘라 말한다, 공항 셔츠룸 모음 따위 전에 이게 먼저다</a>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/t3link-006.html">형님들, 진짜배기 인사이트는 뉴스 헤드라인 뒤에 숨어있어요. PRISM 슬라이드 속 데이터과학자의 시선으로 본 &amp;#39;그것&amp;#39;!</a>
+        <p class="post-item__summary">그 유명한 자료 유출 사건 말입니다. 당시 전 세계 언론이 난리가 났었죠. 온통 &quot;이것이 바로 감시!&quot; &quot;사생활 침해!&quot; 막 흥분해서 쏟아내던 헤드라인들 기억하실 겁니다. 근데 말이죠, 저희 같은 </p>
+      </li>
+      </ul>
+    <nav class="pager">
+      <a class="pager__link" href="posts.html">1</a>
+      <a class="pager__link" href="posts-2.html">2</a>
+      <span class="pager__current">3</span>
+    </nav>
+    </main>
+  </div>
+</body>
+</html>
